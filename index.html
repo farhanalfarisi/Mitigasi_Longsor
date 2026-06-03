@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mitigasi Bencana Longsor</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- SKY + CLOUDS -->
+<div class="sky-bg">
+  <div class="cloud c1"></div>
+  <div class="cloud c2"></div>
+  <div class="cloud c3"></div>
+</div>
+
+<!-- MOUNTAIN BACKGROUND -->
+<div class="mountain-wrap">
+<svg viewBox="0 0 400 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="0,200 60,80 120,200" fill="#2d4a18" opacity="0.7"/>
+  <polygon points="40,200 130,50 220,200" fill="#3d5c1e" opacity="0.85"/>
+  <polygon points="100,200 200,30 300,200" fill="#4a7a2c" opacity="0.9"/>
+  <polygon points="150,200 270,20 390,200" fill="#3d5c1e" opacity="0.95"/>
+  <polygon points="250,200 370,55 400,130 400,200" fill="#2d4a18"/>
+  <polygon points="180,200 290,60 350,200" fill="#1a3310" opacity="0.6"/>
+  <polygon points="0,200 0,160 80,200" fill="#1a3310" opacity="0.5"/>
+  <polygon points="200,30 185,55 215,55" fill="rgba(255,255,255,0.7)"/>
+  <polygon points="270,20 255,42 285,42" fill="rgba(255,255,255,0.8)"/>
+  <polygon points="130,50 118,70 142,70" fill="rgba(255,255,255,0.5)"/>
+</svg>
+</div>
+
+<!-- ===== COVER ===== -->
+<div id="hal-utama" class="halaman aktif">
+  <div class="hero-wrap">
+    <div class="hero-emoji">🏔️</div>
+    <div class="hero-badge">Media Pembelajaran Interaktif</div>
+    <div class="hero-title">Mitigasi Bencana<br>Longsor</div>
+    <div class="hero-sub">Belajar Mandiri Siaga Bencana</div>
+    <div class="hero-sekolah"> </div>
+    <button class="btn-mulai" onclick="bukaMenu()">Ayo Mulai Belajar</button>
+    <div class="scroll-hint">Ketuk untuk memulai</div>
+  </div>
+</div>
+
+<!-- ===== MENU ===== -->
+<div id="hal-menu" class="halaman">
+  <div class="topbar">
+    <div>
+      <div class="topbar-title">🏔️ Mitigasi Bencana Longsor</div>
+    </div>
+  </div>
+  <div class="menu-bg pb-nav">
+    <div class="menu-grid">
+      <div class="menu-card mc-longsor" onclick="bukaKonten('longsor')">
+        <div class="mc-icon-wrap">⛰️</div>
+        <div class="mc-title">Bencana Longsor</div>
+        <div class="mc-desc">Pengertian, penyebab & dampak</div>
+      </div>
+      <div class="menu-card mc-mitigasi" onclick="bukaKonten('mitigasi')">
+        <div class="mc-icon-wrap">🛡️</div>
+        <div class="mc-title">Mitigasi Longsor</div>
+        <div class="mc-desc">Sebelum, saat & sesudah bencana</div>
+      </div>
+      <div class="menu-card mc-simulasi" onclick="bukaKonten('simulasi')">
+        <div class="mc-icon-wrap">🎬</div>
+        <div class="mc-title">Simulasi</div>
+        <div class="mc-desc">Video & skenario kejadian longsor</div>
+      </div>
+      <div class="menu-card mc-latihan" onclick="bukaKonten('latihan')">
+        <div class="mc-icon-wrap">📝</div>
+        <div class="mc-title">Latihan Soal</div>
+        <div class="mc-desc">20 soal uji pemahaman</div>
+      </div>
+      <div class="menu-card mc-kuis" onclick="bukaKonten('kuis')">
+        <div class="mc-icon-wrap">✅</div>
+        <div class="mc-title">Cek Kesiapsiagaan</div>
+        <div class="mc-desc">20 pertanyaan, seberapa siap kamu?</div>
+      </div>
+      <div class="menu-card mc-tips" onclick="bukaKonten('tips')">
+        <div class="mc-icon-wrap">💡</div>
+        <div class="mc-title">Tips Aman</div>
+        <div class="mc-desc">Panduan praktis keselamatan</div>
+      </div>
+      <div class="menu-card mc-bpbd" onclick="bukaKonten('bpbd')">
+        <div class="mc-icon-wrap">🏛️</div>
+        <div class="mc-title">BPBD Pacitan</div>
+        <div class="mc-desc">Kontak darurat & informasi resmi</div>
+      </div>
+      <div class="menu-card mc-tentang" onclick="bukaKonten('tentang')">
+        <div class="mc-icon-wrap">ℹ️</div>
+        <div class="mc-title">Tentang Media</div>
+        <div class="mc-desc">Info pengembang & kontak</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== KONTEN ===== -->
+<div id="hal-konten" class="halaman">
+  <div class="konten-topbar" id="konten-topbar">
+    <button class="btn-back" onclick="kembali()">←</button>
+    <div class="konten-judul" id="konten-judul">Judul</div>
+  </div>
+  <div class="konten-body" id="konten-body"></div>
+</div>
+
+<!-- ===== BOTTOM NAV ===== -->
+<nav class="bottom-nav" id="bottom-nav">
+  <button class="bnav-item" onclick="bukaMenu()"><span>🏠</span>Menu</button>
+  <button class="bnav-item" onclick="bukaKonten('latihan')"><span>📝</span>Latihan</button>
+  <button class="bnav-item" onclick="bukaKonten('bpbd')"><span>🏛️</span>BPBD</button>
+  <button class="bnav-item" onclick="bukaKonten('kuis')"><span>✅</span>Kuis</button>
+  <button class="bnav-item" onclick="bukaKonten('tips')"><span>💡</span>Tips</button>
+</nav>
+
+<script src="script.js"></script>
+</body>
+</html>
